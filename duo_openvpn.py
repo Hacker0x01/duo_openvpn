@@ -391,6 +391,9 @@ def main(Client=Client, environ=os.environ):
         log('required environment variables not found')
         sys.exit(1)
 
+    if username.count('-') > 0:
+        username = username.split('-')[0]
+
     def get_config(k):
         v = environ.get(k)
         if v:
